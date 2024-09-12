@@ -49,9 +49,10 @@ app.post('/api/:namespace/:roomName', (req, res) => {
 
 });
 
-server.listen(4081, () => {
-    console.log('HTTP server listening on 3081');
+server.listen(process.env.PORT || 4081, () => {
+    console.log(`HTTP server listening on ${process.env.PORT || 4081}`);
 });
+
 
 wss.on('connection', function connection(ws, req) {
     const namespace = req.url.split('/')[1];
