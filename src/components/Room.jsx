@@ -8,7 +8,7 @@ export const Room = props => {
                 <ExplorerIcon image="file.png" alt="file icon" />
                 <div className="roomname">&nbsp;{props.room}</div>
             </div>
-            {props.RoomValue.map(client => <Client client={client} key={client} />)}
+            {props.RoomValue ? props.RoomValue.map(client => <Client client={client} key={client} />) : null}
         </div>
     )
 };
