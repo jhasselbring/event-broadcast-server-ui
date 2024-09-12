@@ -18,6 +18,7 @@
   "scripts": {
     "dev:fe": "react-scripts start",
     "dev:be": "nodemon src/server --watch src/server",
+    "redeploy": "git pull && npm run build && pm2 stop eb && pm2 start eb",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
