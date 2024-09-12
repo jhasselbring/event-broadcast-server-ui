@@ -7,8 +7,8 @@ export const Explorer = props => {
     const ws = useRef(null);
 
     const connectWebSocket = () => {
-        const socketProtocolBaseUrl = process.env.NODE_ENV === 'production' ? 'wss://broadcast.toolbox.plus/admin/rooms' : 'ws://localhost:4081';
-        ws.current = new WebSocket(`${socketProtocolBaseUrl}/admin/rooms`);
+        const socketProtocolUrl = process.env.NODE_ENV === 'production' ? 'wss://broadcast.toolbox.plus/admin/rooms' : 'ws://localhost:4081/admin/rooms';
+        ws.current = new WebSocket(`${socketProtocolUrl}`);
 
         ws.current.onmessage = (event) => {
             state.updateRooms(JSON.parse(event.data));
