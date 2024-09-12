@@ -7,6 +7,7 @@ const WebSocket = require('ws');
 const { v4: uuidv4 } = require('uuid');
 const wss = new WebSocket.Server({ server });
 const path = require('path');
+const { exec } = require('child_process');
 let rooms = require('./rooms');
 const {
     generateLightRoomInfo,
@@ -48,7 +49,18 @@ app.post('/api/:namespace/:roomName', (req, res) => {
     }
 
 });
+app.get('/api/update', (req, res) => {
+    exec('npm run redeploy', (error, stdout, stderr) => {
+        if (error) {
+            console.error(`exec error: ${error}`);
+            return;
+        }
 
+        console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+        res.json({ stdout, stderr });
+    });
+});
 server.listen(process.env.PORT || 4081, () => {
     console.log(`HTTP server listening on ${process.env.PORT || 4081}`);
 });
