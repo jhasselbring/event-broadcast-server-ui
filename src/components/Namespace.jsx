@@ -11,9 +11,11 @@ export const Namespace = props => {
                 <ExplorerIcon image="folder.png" alt="folder icon" />
                 <div className="namespacename">&nbsp;{props.namespace}</div>
             </div>
-            {Object.keys(props.namespaceValue).map((room) => (
-                <Room RoomValue={state.data.rooms[props.namespace][room]} key={room} room={room} />
-            ))}
+            {Object.keys(props.namespaceValue).map((room) => {
+                if (state.data.rooms[props.namespace][room]) {
+                    return <Room RoomValue={state.data.rooms[props.namespace][room]} key={room} room={room} />
+                }
+            })}
         </div>
     )
 };
