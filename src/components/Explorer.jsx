@@ -7,7 +7,7 @@ export const Explorer = props => {
     const ws = useRef(null);
 
     const connectWebSocket = () => {
-        const socketProtocolBaseUrl = process.env.NODE_ENV === 'production' ? process.env.SOCKET_PROTOCOL_BASE_URL : 'ws://localhost:4081';
+        const socketProtocolBaseUrl = process.env.NODE_ENV === 'production' ? process.env.SOCKET_PROTOCOL_BASE_URL + '/admin/rooms' : 'ws://localhost:4081';
         ws.current = new WebSocket(`${socketProtocolBaseUrl}/admin/rooms`);
 
         ws.current.onmessage = (event) => {
