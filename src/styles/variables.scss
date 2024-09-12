@@ -1,0 +1,4 @@
+$header-height: calc(43px);
+$footer-height: calc(26px);
+$main-height: calc(100vh - $header-height - $footer-height - 1px);
+$border-color: #2b2b2b;

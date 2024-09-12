@@ -1,0 +1,105 @@
+@import './reset.scss';
+@import './variables.scss';
+
+html {
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #1f1f1f;
+    color: #cccccc;
+
+    div#root {
+      header {
+        height: $header-height;
+        border-bottom: solid 1px $border-color;
+        font-size: 16px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+      }
+
+      main {
+        height: $main-height;
+        display: flex;
+
+        nav {
+          width: 59px;
+          border-right: solid 1px $border-color;
+          height: $main-height;
+        }
+
+        div#explorer {
+          padding-left: 10px;
+          padding-top: 10px;
+          width: 350px;
+          resize: horizontal;
+          overflow: auto;
+          border-right: solid 1px $border-color;
+          height: $main-height;
+          scrollbar-color: rgba(50,50,50,0.5) transparent;
+          div.namespace-group {
+            div.namespace {
+              display: flex;
+              padding-left: 5px;
+              img {
+                width: 28px;
+              }
+              div.namespacename {
+                width: 100%;
+                line-height: 28px;
+              }
+            }
+            div.room-group {
+              div.room {
+                display: flex;
+                padding-left: 15px;
+
+                img {
+                  width: 28px;
+                }
+
+                div.roomname {
+                  width: 100%;
+                  line-height: 28px;
+                }
+
+              }
+              div.client-group {
+                div.client {
+                  display: flex;
+                  padding-left: 25px;
+                  img {
+                    width: 28px;
+                  }
+                  div.clientname {
+                    width: 100%;
+                    line-height: 28px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        div#editor {
+          flex: 1;
+        }
+      }
+
+      footer {
+        border-top: solid 1px $border-color;
+        height: $footer-height;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+      }
+    }
+  }
+}
