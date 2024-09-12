@@ -7,7 +7,7 @@ export const Explorer = props => {
     const ws = useRef(null);
 
     const connectWebSocket = () => {
-        ws.current = new WebSocket('ws://localhost:3081/admin/rooms');
+        ws.current = new WebSocket('ws://broadcast.toolbox.plus/admin/rooms');
 
         ws.current.onmessage = (event) => {
             state.updateRooms(JSON.parse(event.data));
